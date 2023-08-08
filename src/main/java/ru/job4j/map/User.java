@@ -18,6 +18,8 @@ public class User {
 
 // only equals
 // user1 - hashcode: 1922154895, hash: 1922151198 bucket: 14 user2 - hashcode: 883049899, hash: 883046202 bucket: 10
+// both equals and hashcode
+// user1 - hashcode: -267596601, hash: -267633461 bucket: 11 user2 - hashcode: -267596601, hash: -267633461 bucket: 11
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -32,10 +34,12 @@ public class User {
 
 // only hashCode
 // user1 - hashcode: -268462629, hash: -268469724 bucket: 4 user2 - hashcode: -268462629, hash: -268469724 bucket: 4
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(name, children, birthday);
-//    }
+// both equals and hashcode
+// user1 - hashcode: -267596601, hash: -267633461 bucket: 11 user2 - hashcode: -267596601, hash: -267633461 bucket: 11
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
+    }
 
 //    user1 - hashcode: 284720968, hash: 284716976 bucket: 0 user2 - hashcode: 189568618, hash: 189564562 bucket: 2
 
