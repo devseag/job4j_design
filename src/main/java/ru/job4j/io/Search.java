@@ -29,7 +29,7 @@ public class Search {
             throw new IllegalArgumentException("Root folder is null. Usage java -jar search.jar ROOT_FOLDER.");
         }
         if (!Paths.get(arg[0]).toFile().exists()) {
-            throw new IllegalArgumentException("File does not exit.");
+            throw new IllegalArgumentException("File does not exist.");
         }
         if (!Paths.get(arg[0]).toFile().isDirectory()) {
             throw new IllegalArgumentException("Not a directory.");
