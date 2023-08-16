@@ -14,3 +14,5 @@ public class GCTypeDemo {
         }
     }
 }
+
+//-XX:+UseG1GC -Xlog:gc*
