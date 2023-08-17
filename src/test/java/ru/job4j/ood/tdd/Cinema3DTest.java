@@ -103,4 +103,14 @@ public class Cinema3DTest {
         assertThatThrownBy(() -> cinema.buy(account, 1, 1, null)).
                 isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void whenBuyOccupiedPlaceThenGetException() {
+        Account account = new AccountCinema();
+        Cinema cinema = new Cinema3D();
+        Calendar date = Calendar.getInstance();
+        cinema.buy(account, 1, 1, date);
+        assertThatThrownBy(() -> cinema.buy(account, 1, 1, date))
+                .isInstanceOf(IllegalStateException.class);
+    }
 }
