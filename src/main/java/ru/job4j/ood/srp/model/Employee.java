@@ -1,6 +1,7 @@
 package ru.job4j.ood.srp.model;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Objects;
 
 public class Employee {
