@@ -4,15 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractStore implements Store {
-    List<Food> products;
+    private final List<Food> products;
+    private final FreshAnalyzer analyzer;
 
     public AbstractStore() {
         this.products = new ArrayList<>();
+        this.analyzer = new FreshAnalyzer();
     }
 
     public List<Food> get() {
-        return products;
+        List<Food> foodList = new ArrayList<>(products);
+        return foodList;
     }
 
-    public abstract boolean put(Food food);
+    public boolean put(Food food) {
+        boolean result = true;
+        if (!isFresh(food)) {
+            result = false;
+            return result;
+        }
+        products.add(food);
+        return result;
+    }
+
+    protected abstract boolean isFresh(Food food);
 }

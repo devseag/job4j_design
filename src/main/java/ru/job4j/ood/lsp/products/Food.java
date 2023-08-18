@@ -1,7 +1,6 @@
 package ru.job4j.ood.lsp.products;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Food {
     private String name;
@@ -23,11 +22,15 @@ public class Food {
         this.price = price - (price * discount);
     }
 
-    public double getFreshness() {
-        return (double) ChronoUnit.DAYS.between(LocalDate.now(), createDate) / (ChronoUnit.DAYS.between(expiryDate, createDate)) * 100;
-    }
-
     public double getPrice() {
         return price;
+    }
+
+    public LocalDate getExpiryDate() {
+        return expiryDate;
+    }
+
+    public LocalDate getCreateDate() {
+        return createDate;
     }
 }

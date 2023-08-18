@@ -8,17 +8,10 @@ public class Warehouse extends AbstractStore {
     }
 
     @Override
-    public boolean put(Food food) {
-        boolean result = false;
-        if (food.getFreshness() > SHELFLIFE) {
-            products.add(food);
-            result = true;
-        }
-        return result;
+    protected boolean isFresh(Food food) {
+        FreshAnalyzer analyzer = new FreshAnalyzer();
+        return analyzer.analyze(food) > SHELFLIFE;
     }
 
-    @Override
-    public double getShelfLife() {
-        return SHELFLIFE;
-    }
+
 }
